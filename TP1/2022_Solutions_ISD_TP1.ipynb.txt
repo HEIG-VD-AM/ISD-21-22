@@ -1,0 +1,383 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "7d17486b",
+   "metadata": {},
+   "source": [
+    "# Introduction à la Science des données\n",
+    "\n",
+    "## Travail pratique 01 - Familiarisation avec le langage Python\n",
+    "\n",
+    "\n",
+    "Professeur: Carlos Peña\n",
+    "\n",
+    "Assistant: Thibault Schowing\n",
+    "\n",
+    "Objectifs: \n",
+    "- Premiers pas avec le langage de programmation Python\n",
+    "- Familiarisation avec l’environnement interactif Jupyter\n",
+    "\n",
+    "### 1. Langage de programmation python\n",
+    "\n",
+    "Le site w3schools.com vous propose une série d’exercices en ligne afin de mettre en pratique le langage de programmation Python et ainsi accomplir les premiers pas avec ce langage.\n",
+    "\n",
+    "Allez sur le site [w3school](https://www.w3schools.com/python/exercise.asp) et faites les exercices proposés concernant la syntaxe du langage, l’édition des commentaires, l’utilisation des variables et les différents types des données, l’utilisation des opérateurs arithmétiqu es et logiques, diverses structures des données, telles que les listes, tuples, sets et dictionnaires, les instructions de comparaison et des boucles, les fonctions et l’importation des modules. La programmation orientée objets ne sera pas très importante dans le cadre de ce cours (partie classes et inheritance).\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "85300721",
+   "metadata": {},
+   "source": [
+    "### 2. Python sur des notebooks Jupyter\n",
+    "\n",
+    "Créez un notebook en utilisant le kernel correspondant à l'environnement virtuel créé en cours et programmez des solutions aux problèmes ci-dessous: \n",
+    "\n",
+    "#### A\n",
+    "\n",
+    "Programmez une fonction qui reçoit en entrée un entier *n* et qui calcule la somme: $1 + 2^{2} + 3^{2} + ... + n^{2}$ en utilisant une **boucle for**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "b807175c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def func_A (n):\n",
+    "    \n",
+    "    result = 0    \n",
+    "    for i in range(1, n+1):\n",
+    "        result += (i ** 2)\n",
+    "        \n",
+    "    return result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "35c298e8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "14"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# An example\n",
+    "func_A(3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4a5682e4",
+   "metadata": {},
+   "source": [
+    "\n",
+    "#### B\n",
+    "\n",
+    "Programmez une fonction qui reçoit en entrée un entier *n* et qui calcule la somme: $1 + 2^{2} + 3^{2} + ... + n^{2}$ en utilisan la méthode **sum(liste)**\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "dacc94c3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def func_B(n):\n",
+    "    return sum(i**2 for i in range(1, n+1))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "7039c264",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "14"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# An example\n",
+    "func_B(3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a4b5f82e",
+   "metadata": {},
+   "source": [
+    "\n",
+    "#### C\n",
+    "\n",
+    "Programmez une fonction qui reçoit en entrée une liste et rend en sortie une nouvelle liste qui contient la première séquence de valeurs et ensuite la même séquence mais à l’inverse, formant un palindrome.\n",
+    " \n",
+    "Exemple: ```input= [1,2,3,4,5] --> out = [1,2,3,4,5,5,4,3,2,1]```\n",
+    " \n",
+    " Aide: si nécessaire, utilisez la méthode liste.copy() pour faire une copie de la liste en entrée\n",
+    " \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "57b63cdf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# solution 1\n",
+    "def func_C(l):\n",
+    "    return l + list(reversed(l))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "6409dddf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# solution 2\n",
+    "def func_C(l):\n",
+    "    return l + l[::-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "0df7dfd7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c1 = [1, 2, 3]\n",
+    "c2 = func_C(c1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "61acdee1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3]"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "c1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "abeb10b7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 3, 2, 1]"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "c2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4dd76ade",
+   "metadata": {},
+   "source": [
+    "\n",
+    "#### D\n",
+    "\n",
+    "Programmez un script qui génère une liste contenant un million de valeurs entières aléatoires entre 1 et 10 (y compris) et qui calcule le pourcentage de valeurs impaires dans cette liste. \n",
+    " \n",
+    " Aide: vous pouvez utiliser le module random (import random) et la méthode random.randrange pour la génération de nombres aléatoires.\n",
+    " \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "eeacd908",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "49.95%\n"
+     ]
+    }
+   ],
+   "source": [
+    "from random import randrange\n",
+    "\n",
+    "d = [randrange(1, 11) for _ in range(1_000_000)]\n",
+    "d_odd = [x for x in d if x % 2 != 0]\n",
+    "\n",
+    "print(f'{len(d_odd) / 10_000:.2f}%')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "77bd2290",
+   "metadata": {},
+   "source": [
+    "\n",
+    "#### E\n",
+    "\n",
+    "Programmez un script qui utilise les compréhensions de listes Python pour imprimer les carrés des entiers impairs plus petits ou égales à 10 et les carrés des entiers pairs plus grands que 10, mais plus petits que 21. \n",
+    " \n",
+    " C’est à dire : ```[1, 9, 25, 49, 81, 144, 196, 256, 324, 400]```\n",
+    " \n",
+    " Aide : ```new_list = [function(item) for item in list if condition(item)]```\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "0bad9b38",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 9, 25, 49, 81, 144, 196, 256, 324, 400]"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# solution 1\n",
+    "\n",
+    "[x**2 for x in (list(range(1, 11, 2)) + list(range(12, 21, 2)))]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "472eabd3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 9, 25, 49, 81, 144, 196, 256, 324, 400]"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# solution 2\n",
+    "\n",
+    "[x**2 for x in range(1, 21) if (((x <= 10) and (x % 2 != 0)) or ((x > 10) and (x % 2 == 0)))]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "bf6d22b9",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 9, 25, 49, 81, 144, 196, 256, 324, 400]"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# solution 3\n",
+    "\n",
+    "[x**2 for x in range(1, 11, 2)] + [x**2 for x in range(12, 21, 2)]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b0d6a669",
+   "metadata": {},
+   "source": [
+    "## Rapport\n",
+    "\n",
+    "Il n’y a pas de rapport à rendre, mais faites SVP tous les exercices proposés pour vous préparer pour la suite. Ce cours n’est pas un cours de programmation, mais Python reste nécessaire pour la mise en pratique des expériences d’analyse et modélisation des données par la suite."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "aec0279f",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "isd-2022",
+   "language": "python",
+   "name": "isd-2022"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
